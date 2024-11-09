@@ -20,7 +20,14 @@ Route::get('/login', function () {
     return view('login');
 })->name("login");
 
-
-Route::get('/back', function () {
-    return view('back.index');
-})->name('back.index');
+Route::prefix('back')->group(function () {
+    Route::get('/', function () {
+        return view('back.index');
+    })->name('back.index');
+    Route::get('/articles', function () {
+        return view('back.articles');
+    });
+    Route::get('/addArticle', function () {
+        return view('back.addArticle');
+    });
+});

@@ -34,7 +34,7 @@
     <div class="container-row-around ">
         <div style="width:20%;font-size: 40px;">試做作品</div>
         <button class="container-row custom-button" style="width:50%">
-            <a href="" style="font-size: 30px;">文章管理</a>
+            <a href="/back/articles" style="font-size: 30px;">文章管理</a>
         </button>
         <button class="container-row custom-button" style="width:20%">
             <p style="font-size: 30px;">通知</p>
