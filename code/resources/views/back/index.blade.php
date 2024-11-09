@@ -32,17 +32,76 @@
 
 <body>
     <div class="container-row-around ">
-        <div style="width:20%;font-size: 40px;">試做作品</div>
+        <div style="width:20%;font-size: 187.5%;">試做作品</div>
         <button class="container-row custom-button" style="width:50%">
-            <a href="/back/notifies" style="font-size: 30px;">文章管理</a>
+            <a href="/back/notifies" style="font-size: 187.5%;">文章管理</a>
         </button>
+        <!-- <button class="container-row custom-button" style="width:20%">
+            <p style="font-size: 187.5%;">通知</p>
+            <div class="circle">
+                <div style="font-size: 160%;display:none;">7</div>
+            </div>
+        </button> -->
         <button class="container-row custom-button" style="width:20%">
-            <p style="font-size: 30px;">通知</p>
-            <div class="circle"></div>
+            <p style="font-size: 187.5%;">通知</p>
+            <div id="unreadCountBackground" class="circle" style="display: none;">
+                <div id="unreadCount" style="font-size: 160%;">0</div>
+            </div>
         </button>
     </div>
     </div>
+    <script>
+        async function submitNotification() {
+            const token = localStorage.getItem('token'); // 从 localStorage 获取 token
+            if (!token) {
+                alert("You are not logged in. Please log in first.");
+                window.location.href = "/login"; // 如果没有 token，重定向到登录页面
+                return;
+            }
 
+            try {
+                // 使用 AJAX 通过 fetch 发送 POST 请求到后端
+                const response = await fetch("/api/back/countUnread", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "Authorization": `Bearer ${token}` // 将 token 添加到请求头部
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    if (data.message > 0) {
+                        // 显示未读通知数量
+                        const unreadCountDiv = document.getElementById("unreadCount");
+                        unreadCountDiv.innerText = data.message; // 设置未读通知数量
+                        const unreadCountBackground = document.getElementById("unreadCountBackground");
+                        unreadCountBackground.style.display = "block"; // 显示数字区域
+                    }
+
+                } else {
+                    // 处理错误
+                    const errorsDiv = document.getElementById('errors');
+                    errorsDiv.innerHTML = ''; // 清空之前的错误信息
+                    if (data.errors) {
+                        // 显示验证错误
+                        Object.keys(data.errors).forEach(key => {
+                            const error = document.createElement('div');
+                            error.innerText = `${key}: ${data.errors[key].join(', ')}`;
+                            errorsDiv.appendChild(error);
+                        });
+                    } else {
+                        errorsDiv.innerText = "An error occurred. Please try again.";
+                    }
+                }
+            } catch (error) {
+                console.error("An error occurred:", error);
+            }
+        }
+        submitNotification()
+    </script>
 </body>
 
 </html>

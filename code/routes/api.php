@@ -24,6 +24,7 @@ Route::post('register', [RegisterController::class, 'register'])->name('api.regi
 Route::post('login', [LoginController::class, 'login'])->name('api.login');
 Route::prefix('back')->middleware('auth:sanctum')->group(function () {
     Route::post('/addNotify', [NotifyController::class, 'addNotify']);
+    Route::post('/countUnread', [NotifyController::class, 'countUnresdNotify']);
 });
 Route::post('test', function () {
     return response()->json([
