@@ -24,10 +24,10 @@ Route::prefix('back')->group(function () {
     Route::get('/', function () {
         return view('back.index');
     })->name('back.index');
-    Route::get('/articles', function () {
-        return view('back.articles');
+    Route::get('/notifies', function () {
+        return view('back.notifies');
     });
-    Route::get('/addArticle', function () {
-        return view('back.addArticle');
+    Route::get('/addNotify', function () {
+        return view('back.addNotify');
     });
 });
