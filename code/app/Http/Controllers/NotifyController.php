@@ -10,7 +10,9 @@ class NotifyController extends Controller
     //
     public function addNotify(NotifyInterface $noti, Request $request)
     {
-        $result = $noti->addNotify($request);
+        $data = $request->all();
+
+        $result = $noti->addNotify($data);
         return response()->json([
             'message' => $result,
         ], 201);

@@ -7,5 +7,5 @@ interface NotifyInterface
 
     // add notify to database
 
-    public function addNotify();
+    public function addNotify(array $request);
 }

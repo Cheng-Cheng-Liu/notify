@@ -61,7 +61,7 @@
             const data = await response.json();
 
             if (response.ok) {
-                alert("Notification added successfully!");
+                alert(data.message);
                 // 清空表单
                 document.getElementById('notificationForm').reset();
             } else {
