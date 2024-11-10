@@ -34,6 +34,6 @@ Route::prefix('back')->group(function () {
         return view('back.myNotifications');
     });
     Route::get('/notification/{id}', function ($id) {
-        return view('back.notification', ['id' => $id]);
+        return view('back.notification');
     });
 });

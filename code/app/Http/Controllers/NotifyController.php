@@ -39,4 +39,16 @@ class NotifyController extends Controller
             'message' => $myNotifications,
         ], 201);
     }
+
+    public function notification($id)
+    {
+
+        //設置已讀
+        Notification::where('id', $id)->update(['status' => 1]);
+        //詳細內容
+        $notification = Notification::where('id', $id)->first();
+        return response()->json([
+            'message' => $notification,
+        ], 201);
+    }
 }
