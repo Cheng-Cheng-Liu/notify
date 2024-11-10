@@ -30,4 +30,13 @@ class NotifyController extends Controller
             'message' => $count,
         ], 201);
     }
+
+    public function myNotifications()
+    {
+        $user_id = Auth::user()->id;
+        $myNotifications = Notification::where('user_id', $user_id)->select('id', 'title')->get()->toArray();
+        return response()->json([
+            'message' => $myNotifications,
+        ], 201);
+    }
 }

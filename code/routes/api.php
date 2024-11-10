@@ -25,6 +25,7 @@ Route::post('login', [LoginController::class, 'login'])->name('api.login');
 Route::prefix('back')->middleware('auth:sanctum')->group(function () {
     Route::post('/addNotify', [NotifyController::class, 'addNotify']);
     Route::post('/countUnread', [NotifyController::class, 'countUnresdNotify']);
+    Route::get('/myNotifications', [NotifyController::class, 'myNotifications']);
 });
 Route::post('test', function () {
     return response()->json([

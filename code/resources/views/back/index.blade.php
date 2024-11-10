@@ -36,18 +36,13 @@
         <button class="container-row custom-button" style="width:50%">
             <a href="/back/notifies" style="font-size: 187.5%;">文章管理</a>
         </button>
-        <!-- <button class="container-row custom-button" style="width:20%">
-            <p style="font-size: 187.5%;">通知</p>
-            <div class="circle">
-                <div style="font-size: 160%;display:none;">7</div>
-            </div>
-        </button> -->
-        <button class="container-row custom-button" style="width:20%">
+        <a href="/back/myNotifications" class="container-row custom-button" style="width:20%;text-decoration: none;">
             <p style="font-size: 187.5%;">通知</p>
             <div id="unreadCountBackground" class="circle" style="display: none;">
-                <div id="unreadCount" style="font-size: 160%;">0</div>
+                <div id="unreadCount" style="font-size: 110%;margin-left:20%;">0</div>
             </div>
-        </button>
+        </a>
+
     </div>
     </div>
     <script>
@@ -101,6 +96,8 @@
             }
         }
         submitNotification()
+        // 每5秒执行一次
+        setInterval(submitNotification, 5000);
     </script>
 </body>
 
