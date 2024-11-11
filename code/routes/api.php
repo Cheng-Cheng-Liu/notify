@@ -28,6 +28,7 @@ Route::prefix('back')->middleware('auth:sanctum')->group(function () {
     Route::delete('/notify', [NotifyController::class, 'deleteNotify']);
     Route::post('/countUnread', [NotifyController::class, 'countUnresdNotify']);
     Route::get('/myNotifications', [NotifyController::class, 'myNotifications']);
+    Route::get('/myNotification', [NotifyController::class, 'myNotification']);
     Route::get('/notification/{id}', [NotifyController::class, 'notification']);
     Route::get('/notificationForupdate/{id}', [NotifyController::class, 'notificationForupdate']);
     Route::get('/allNotifications', [NotifyController::class, 'allNotifications']);
