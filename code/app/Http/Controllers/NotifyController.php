@@ -51,7 +51,16 @@ class NotifyController extends Controller
             'message' => $notification,
         ], 201);
     }
+    public function notificationForupdate($id)
+    {
 
+
+        //詳細內容
+        $notification = Notification::where('id', $id)->first();
+        return response()->json([
+            'message' => $notification,
+        ], 201);
+    }
     public function allNotifications()
     {
 

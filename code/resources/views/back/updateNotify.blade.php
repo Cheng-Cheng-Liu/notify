@@ -32,7 +32,7 @@
             }
 
             try {
-                const response = await fetch(`/api/back/notification/${id}`, {
+                const response = await fetch(`/api/back/notificationForupdate/${id}`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
