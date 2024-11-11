@@ -25,7 +25,7 @@
             }
 
             try {
-                const response = await fetch(`localhost:8000/api/back/notify`, {
+                const response = await fetch(`/api/back/notify`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
