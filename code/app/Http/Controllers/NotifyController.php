@@ -51,4 +51,13 @@ class NotifyController extends Controller
             'message' => $notification,
         ], 201);
     }
+
+    public function allNotifications()
+    {
+
+        $allNotifications = Notification::get()->toArray();
+        return response()->json([
+            'message' => $allNotifications,
+        ], 201);
+    }
 }
