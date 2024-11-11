@@ -26,4 +26,29 @@ class System implements NotifyInterface
         }
         return "add notify by System";
     }
+
+
+    public function updateNotify($request)
+    {
+        $id = $request['id'];
+        Notification::where('id', $id)->update([
+
+            'type' => $request['type'],
+            'title' => $request['title'],
+            'content' => $request['content'],
+
+        ]);
+
+        return "update notify by System";
+    }
+
+    public function deleteNotify($request)
+    {
+
+        $id = $request['id'];
+        Notification::where('id', $id)->delete();
+
+
+        return "delete notify by System";
+    }
 }

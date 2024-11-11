@@ -11,12 +11,10 @@
 
     <script>
         // 获取当前页面的路径
-        const pathname = window.location.pathname;
-        const parts = pathname.split("/");
-        const last = parts[parts.length - 1];
-        const lastpart = last.split("&");
-        const id = lastpart[parts.length - 1];
-        const type = lastpart[0];
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const type = urlParams.get('type');
+        const id = urlParams.get('id');
 
         async function fetchNotifications() {
             const token = localStorage.getItem('token'); // 从 localStorage 获取 token

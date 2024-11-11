@@ -92,6 +92,7 @@
 
         //送出表單
         async function updateNotification() {
+
             const token = localStorage.getItem('token'); // 从localStorage获取token
             if (!token) {
                 alert("You are not logged in. Please log in first.");

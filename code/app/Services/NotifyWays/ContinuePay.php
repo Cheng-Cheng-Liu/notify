@@ -26,4 +26,30 @@ class ContinuePay implements NotifyInterface
         }
         return "add notify by ontinuePay";
     }
+
+
+    public function updateNotify($request)
+    {
+        $id = $request['id'];
+        Notification::where('id', $id)->update([
+
+            'user_id' => $id,
+            'type' => $request['type'],
+            'title' => $request['title'],
+            'content' => $request['content'],
+
+        ]);
+
+        return "update notify by ontinuePay";
+    }
+
+    public function deleteNotify($request)
+    {
+
+        $id = $request['id'];
+        Notification::where('id', $id)->delete();
+
+
+        return "delete notify by ontinuePay";
+    }
 }

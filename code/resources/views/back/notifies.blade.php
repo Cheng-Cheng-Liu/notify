@@ -47,7 +47,8 @@
                 <div style="width: 80%; height: 20%; border: 2px solid purple;pedding:5%;">
                     <div>title: ${notification.title}</div>
                     <a href="/back/updateNotify/${notification.id}">修改</a>
-                    <a href="api/back/deleteNotify">刪除</a>
+                    <a href="/back/deleteNotify?type=${notification.type}&id=${notification.id}">刪除</a>
+
                 </div>
             `;
                     container.appendChild(notificationDiv);

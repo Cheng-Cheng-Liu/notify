@@ -25,6 +25,7 @@ Route::post('login', [LoginController::class, 'login'])->name('api.login');
 Route::prefix('back')->middleware('auth:sanctum')->group(function () {
     Route::post('/addNotify', [NotifyController::class, 'addNotify']);
     Route::put('/notify', [NotifyController::class, 'updateNotify']);
+    Route::delete('/notify', [NotifyController::class, 'deleteNotify']);
     Route::post('/countUnread', [NotifyController::class, 'countUnresdNotify']);
     Route::get('/myNotifications', [NotifyController::class, 'myNotifications']);
     Route::get('/notification/{id}', [NotifyController::class, 'notification']);

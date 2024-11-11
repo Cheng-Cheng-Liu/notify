@@ -20,6 +20,16 @@ class NotifyController extends Controller
         ], 201);
     }
 
+    public function updateNotify(NotifyInterface $noti, Request $request)
+    {
+        $data = $request->all();
+
+        $result = $noti->updateNotify($data);
+        return response()->json([
+            'message' => $result,
+        ], 201);
+    }
+
     public function countUnresdNotify()
     {
         $user_id = Auth::user()->id;

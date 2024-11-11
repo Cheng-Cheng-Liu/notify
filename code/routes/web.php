@@ -33,6 +33,9 @@ Route::prefix('back')->group(function () {
     Route::get('/updateNotify/{id}', function () {
         return view('back.updateNotify');
     });
+    Route::get('/deleteNotify', function () {
+        return view('back.deleteNotify');
+    });
     Route::get('/myNotifications', function () {
         return view('back.myNotifications');
     });
