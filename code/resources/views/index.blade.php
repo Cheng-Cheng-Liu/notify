@@ -14,7 +14,7 @@
     <div id="errors"></div>
     <form id="registerForm">
         <div>
-            <label for="name">Name:</label>
+            <label for="name">Name:amy</label>
             <input type="text" name="name" id="name" required>
         </div>
         <div>
