@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <h2>Register1dev</h2>
+    <h2>Registerdev2</h2>
     <div id="errors"></div>
     <form id="registerForm">
         <div>
